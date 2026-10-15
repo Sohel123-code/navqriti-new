@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
+import PartnerLink from "../ui/PartnerLink";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { stakeholders } from "../../data/industries";
 
-export default function Industries({ onContact }) {
+export default function Industries() {
   return (
     <section
       id="collaborate"
@@ -22,18 +22,17 @@ export default function Industries({ onContact }) {
         </div>
         <div className="stakeholder-list" data-reveal>
           {stakeholders.map((name, i) => (
-            <button
+            <div className="stakeholder-row"
               key={name}
-              onClick={onContact}
               data-parallax="row"
               style={{ "--parallax-depth": 12 + i * 9 }}
             >
               <span className="mono">0{i + 1}</span>
               {name}
-              <ArrowUpRight size={22} />
-            </button>
+            </div>
           ))}
         </div>
+        <PartnerLink />
       </Container>
     </section>
   );

@@ -1,14 +1,13 @@
 import { useLayoutEffect, useRef } from "react";
 import Hero from "../components/hero/Hero";
 import About from "../components/sections/About";
-import Solutions from "../components/sections/Solutions";
+import VisionMission from "../components/sections/VisionMission";
 import Technology from "../components/sections/Technology";
-import Impact from "../components/sections/Impact";
 import Industries from "../components/sections/Industries";
 import CTA from "../components/sections/CTA";
 import { createScrollReveals } from "../animations/gsap/scroll";
 
-export default function Home({ motionEnabled, toggleMotion, onContact }) {
+export default function Home({ motionEnabled, toggleMotion }) {
   const ref = useRef(null);
   useLayoutEffect(() => {
     if (!motionEnabled) return;
@@ -20,14 +19,12 @@ export default function Home({ motionEnabled, toggleMotion, onContact }) {
       <Hero
         motionEnabled={motionEnabled}
         toggleMotion={toggleMotion}
-        onContact={onContact}
       />
       <About motionEnabled={motionEnabled} />
-      <Technology onContact={onContact} motionEnabled={motionEnabled} />
-      <Impact motionEnabled={motionEnabled} />
-      <Industries onContact={onContact} />
-      <CTA onContact={onContact} />
-      <Solutions onContact={onContact} motionEnabled={motionEnabled} />
+      <Technology motionEnabled={motionEnabled} />
+      <VisionMission motionEnabled={motionEnabled} />
+      <Industries />
+      <CTA />
     </main>
   );
 }

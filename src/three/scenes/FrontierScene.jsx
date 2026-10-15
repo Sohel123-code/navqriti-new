@@ -174,9 +174,9 @@ export default function FrontierScene({ active, motionEnabled }) {
         ? scroll.offset * scroll.strength
         : 0;
       camera.position.set(
-        travel * 0.4,
-        0.2 + travel * 0.8,
-        cameraDistance + Math.abs(travel) * 0.9,
+        travel * 1.25,
+        0.2 + travel * 1.15,
+        cameraDistance + Math.abs(travel) * 1.6,
       );
       camera.lookAt(0, 0, 0);
       guide.rotation.z = travel * 0.4;
@@ -203,7 +203,7 @@ export default function FrontierScene({ active, motionEnabled }) {
       nodes.instanceMatrix.needsUpdate = true;
       edgeGeometry.attributes.position.needsUpdate = true;
       sculpture.rotation.y =
-        elapsed * 0.1 + (current.motionEnabled ? pointer.x : 0) + travel * 0.9;
+        elapsed * 0.1 + (current.motionEnabled ? pointer.x : 0) + travel * 2.3;
       sculpture.rotation.x = THREE.MathUtils.lerp(
         sculpture.rotation.x,
         0.23 +

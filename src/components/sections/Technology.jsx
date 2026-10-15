@@ -1,3 +1,4 @@
+import PartnerLink from "../ui/PartnerLink";
 import { lazy, Suspense, useRef } from "react";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import Container from "../ui/Container";
@@ -10,7 +11,7 @@ import SceneBoundary from "../ui/SceneBoundary";
 const FrontierScene = lazy(() => import("../../three/scenes/FrontierScene"));
 const labels = ["Intelligence", "Quantum", "Intelligent systems"];
 
-export default function Technology({ onContact, motionEnabled }) {
+export default function Technology({ motionEnabled }) {
   const frameRef = useRef(null);
   const sceneReady = useSceneReady(frameRef);
   const { active, setActive, paused, toggle } = useAutoCycle(
@@ -28,7 +29,7 @@ export default function Technology({ onContact, motionEnabled }) {
     >
       <Container>
         <SectionHeading number="02">OUR TECHNOLOGY FRONTIERS</SectionHeading>
-        <div className="section-intro" data-reveal data-parallax="title">
+        <div className="section-intro frontier-heading" data-reveal data-parallax="frontier-title">
           <h2>
             Frontier thinking.
             <br />
@@ -36,6 +37,7 @@ export default function Technology({ onContact, motionEnabled }) {
           </h2>
           <p>Technology-led. Problem-driven.</p>
         </div>
+        <div className="frontier-scroll-track" data-scroll-scene>
         <div
           className="frontier-frame cinematic-frame"
           data-parallax="frame"
@@ -69,21 +71,22 @@ export default function Technology({ onContact, motionEnabled }) {
             <p className="frontier-tags mono">{technology.tags}</p>
             <h3>{technology.title}</h3>
             <p className="frontier-description">{technology.description}</p>
-            <button className="underlined-link" onClick={onContact}>
-              Explore possibilities <ArrowUpRight size={16} />
-            </button>
+            {technology.id !== "deeptech" ? <a className="underlined-link" href={technology.id === "quantum" ? "/quantum" : "/ai"}>
+              {technology.id === "quantum" ? "Discover Quantum" : "Discover AI"} <ArrowUpRight size={16} />
+            </a> : <a className="underlined-link" href="#collaborate">
+              Our partnerships <ArrowUpRight size={16} />
+            </a>}
           </div>
-          <div className="frontier-controls">
+          <div className="frontier-controls frontier-controls--minimal">
             <nav aria-label="Technology frontiers">
               {technologies.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => setActive(index)}
                   aria-pressed={active === index}
+                  aria-label={`Show ${labels[index]}`}
                 >
-                  <span className="mono">{item.number}</span>
-                  {labels[index]}
-                  <span className="frontier-indicator" />
+                  <span className="frontier-dot" aria-hidden="true" />
                 </button>
               ))}
             </nav>
@@ -102,6 +105,8 @@ export default function Technology({ onContact, motionEnabled }) {
             )}
           </div>
         </div>
+        </div>
+        <PartnerLink />
       </Container>
     </section>
   );

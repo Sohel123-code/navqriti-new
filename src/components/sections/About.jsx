@@ -1,7 +1,7 @@
+import PartnerLink from "../ui/PartnerLink";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import AnimatedText from "../ui/AnimatedText";
-import { ArrowUpRight } from "lucide-react";
 import NameStory from "./NameStory";
 
 export default function About({ motionEnabled }) {
@@ -24,13 +24,11 @@ export default function About({ motionEnabled }) {
                 turn bold ideas into working solutions.
               </p>
             </div>
-            <a className="underlined-link" href="#approach" data-reveal>
-              Discover. Create. Deploy.
-              <ArrowUpRight size={18} />
-            </a>
+
           </div>
         </div>
         <NameStory motionEnabled={motionEnabled} />
+        <PartnerLink />
       </Container>
     </section>
   );

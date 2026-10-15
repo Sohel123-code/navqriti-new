@@ -39,7 +39,7 @@ export function createCinematicScroll(scope) {
         node = node.offsetParent;
       }
       record.height = record.element.offsetHeight;
-      record.state.strength = window.innerWidth < 768 ? 0.4 : 1;
+      record.state.strength = window.innerWidth < 768 ? 0.32 : 1;
     }
     measureNeeded = false;
   };
@@ -73,6 +73,7 @@ export function createCinematicScroll(scope) {
         "--scroll-shift",
         (state.offset * state.strength).toFixed(5),
       );
+      element.style.setProperty("--scroll-progress", ((state.offset + 1) / 2).toFixed(5));
       element.style.setProperty(
         "--scroll-distance",
         (Math.abs(state.offset) * state.strength).toFixed(5),
@@ -123,6 +124,7 @@ export function createCinematicScroll(scope) {
       Object.assign(state, neutral);
       element.style.removeProperty("--scroll-shift");
       element.style.removeProperty("--scroll-distance");
+      element.style.removeProperty("--scroll-progress");
     });
   };
 }

@@ -8,7 +8,7 @@ import useSceneReady from "../../hooks/useSceneReady";
 import SceneBoundary from "../ui/SceneBoundary";
 const ParticleScene = lazy(() => import("../../three/scenes/ParticleScene"));
 
-export default function Hero({ motionEnabled, toggleMotion, onContact }) {
+export default function Hero({ motionEnabled, toggleMotion }) {
   const ref = useRef(null);
   const particlesReady = useSceneReady(ref, 1300);
   useLayoutEffect(() => {
@@ -33,7 +33,7 @@ export default function Hero({ motionEnabled, toggleMotion, onContact }) {
       )}
       <Container>
         <div className="hero-main">
-          <HeroText motionEnabled={motionEnabled} onContact={onContact} />
+          <HeroText motionEnabled={motionEnabled} />
           <HeroVisual
             heroRef={ref}
             motionEnabled={motionEnabled}

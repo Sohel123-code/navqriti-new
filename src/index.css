@@ -1194,7 +1194,7 @@ h2 {
 .stakeholder-list {
   border-top: 1px solid var(--line);
 }
-.stakeholder-list button {
+.stakeholder-list .stakeholder-row {
   display: flex;
   align-items: center;
   text-align: left;
@@ -1205,15 +1205,15 @@ h2 {
   font-size: 17px;
   letter-spacing: -0.035em;
 }
-.stakeholder-list button .mono {
+.stakeholder-list .stakeholder-row .mono {
   font-size: 8px;
   color: #707068;
 }
-.stakeholder-list button svg {
+.stakeholder-list .stakeholder-row svg {
   margin-left: auto;
   transition: transform 0.2s;
 }
-.stakeholder-list button:hover svg {
+.stakeholder-list .stakeholder-row:hover svg {
   transform: translate(3px, -3px);
 }
 .cta {
@@ -1594,7 +1594,7 @@ body:has(dialog[open]) {
   .industries h2 {
     font-size: 33px;
   }
-  .stakeholder-list button {
+  .stakeholder-list .stakeholder-row {
     font-size: 15px;
   }
   .footer-main nav {
@@ -1789,7 +1789,7 @@ body:has(dialog[open]) {
   .industries h2 {
     font-size: 29px;
   }
-  .stakeholder-list button {
+  .stakeholder-list .stakeholder-row {
     font-size: 13px;
     gap: 15px;
   }
@@ -2220,12 +2220,12 @@ body:has(dialog[open]) {
     font-size: 11px;
     margin-top: 22px;
   }
-  .stakeholder-list button {
+  .stakeholder-list .stakeholder-row {
     font-size: 16px;
     padding-block: 23px;
     gap: 20px;
   }
-  .stakeholder-list button .mono {
+  .stakeholder-list .stakeholder-row .mono {
     font-size: 8px;
   }
   .cta {

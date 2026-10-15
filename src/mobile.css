@@ -1,0 +1,114 @@
+/* Shared phone/tablet ergonomics. Keep every feature available to touch users. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+.brand-image { position: absolute; inset: 0; overflow: hidden; }
+.mobile-domain-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.mobile-domain-links a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; padding: 12px; border: 1px solid var(--line); font-size: 13px; }
+.purpose-stage,.footer-particle-word canvas,.ai-page .nq-liquid { touch-action: pan-y pinch-zoom; }
+.mobile-menu { overscroll-behavior: contain; overflow-y: auto; }
+
+@media (max-width: 900px), (pointer: coarse) {
+  html { scroll-padding-bottom: 100px; }
+  .app button,.app a { -webkit-tap-highlight-color: #8883; }
+  .app .icon-button,.app .frontier-pause,.app .purpose-arrow,.app .visual-caption button { min-width: 44px; min-height: 44px; flex-shrink: 0; }
+  .app .brand { min-height: 44px; }
+  .app .brand-image { height: 30px; top: 50%; bottom: auto; transform: translateY(-50%); }
+  .app .desktop-nav a,.app .purpose-dots button { min-height: 48px; min-width: 44px; }
+  .app .phase-picker button { min-height: 45px; }
+  .app .underlined-link,.app .text-link,.app .scroll-cue,.app .nav-contact,.app .phase-picker button { min-height: 44px; }
+  .app .ai-pill,.app .ai-motion-control,.app .ai-demo-tabs button,.app .quantum-modes button,.app .quantum-hero-foot button,.app .quantum-round-link,.app .quantum-footer a { min-height: 48px; }
+  .detail-navigation .detail-home,.detail-navigation .detail-sibling { min-height: 44px; }
+  .detail-navigation { left: max(12px,env(safe-area-inset-left)); bottom: max(12px,env(safe-area-inset-bottom)); }
+  .app .contact-dialog input,.app .contact-dialog select,.app .contact-dialog textarea { font-size: 16px; min-height: 48px; }
+  .app .contact-dialog input::placeholder,.app .contact-dialog textarea::placeholder { font-size: 14px; }
+  .app .contact-dialog label { font-size: 13px; }
+  .app .contact-dialog textarea { min-height: 112px; }
+  .app .contact-dialog .form-note { font-size: 12px; }
+  .app .contact-intro { font-size: 14px; }
+  .app .contact-dialog-top { position: sticky; top: -1px; z-index: 3; background: var(--paper); padding-block: 12px; }
+  .app .contact-dialog .form-grid { grid-template-columns: 1fr; }
+  .app .contact-dialog .form-submit { min-height: 52px; font-size: 14px; }
+  .app .quantum-phase input { height: 44px; margin: 0; background: transparent; appearance: none; }
+  .app .quantum-phase input::-webkit-slider-runnable-track { height: 4px; background: #686868; border-radius: 4px; }
+  .app .quantum-phase input::-webkit-slider-thumb { appearance: none; height: 24px; width: 24px; margin-top: -10px; border: 3px solid #fff; border-radius: 50%; background: #ccc; }
+  .app .quantum-phase input::-moz-range-track { height: 4px; background: #686868; border-radius: 4px; }
+  .app .quantum-phase input::-moz-range-thumb { height: 20px; width: 20px; border: 2px solid #fff; border-radius: 50%; background: #ccc; }
+  .app .quantum-phase>span { margin-bottom: 0; font-size: 11px; }
+}
+
+@media (max-width: 1100px) and (pointer: coarse) {
+  .app .desktop-nav { display: none; }
+  .app .menu-toggle { display: grid; width: 44px; height: 44px; padding: 10px; }
+  .app .nav-contact { margin-left: auto; }
+  .app .mobile-menu-top { position: sticky; top: 0; background: var(--paper); z-index: 2; }
+}
+
+@media (max-width: 767px) {
+  .app .navbar-inner { gap: 12px; padding-inline: max(0px,env(safe-area-inset-left)) max(0px,env(safe-area-inset-right)); }
+  .app .brand { min-height: 44px; }
+  .app .brand img { top: -15px; }
+  .app .nav-contact { font-size: 12px; gap: 10px; }
+  .app .menu-toggle { width: 44px; padding: 10px; }
+  .app .mobile-menu { padding: max(16px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left)); }
+  .app .mobile-menu-top { position: sticky; top: -1px; background: var(--paper); z-index: 2; padding-block: 6px; }
+  .app .mobile-menu nav { margin: 20px 0 24px; }
+  .app .mobile-menu nav a { font-size: 25px; padding-block: 18px; min-height: 60px; }
+  .app .mobile-menu>.eyebrow { margin-top: 24px; }
+  .app .hero-eyebrow { font-size: 9px; line-height: 1.7; }
+  .app .hero-description { font-size: 15px; line-height: 1.7; }
+  .app .hero-actions { flex-wrap: wrap; gap: 12px 20px; }
+  .app .hero-actions .button { font-size: 12px; min-height: 48px; }
+  .app .hero-actions .text-link { font-size: 12px; max-width: none; }
+  .app .hero h1 { font-size: clamp(46px,14vw,95px); }
+  .app .about-copy p,.app .industries-grid>div>p { font-size: 15px; line-height: 1.75; }
+  .app .identity-caption { font-size: 14px; }
+  .app .identity-bottom nav button small { font-size: 11px; line-height: 1.6; }
+  .app .identity-bottom { align-items: end; }
+  .app .frontier-frame { grid-template-rows: 44px minmax(220px,65vw) auto auto; }
+  .app .frontier-copy { min-height: 0; padding: 16px 20px 24px; }
+  .app .frontier-description { font-size: 14px; line-height: 1.7; min-height: 0; }
+  .app .frontier-controls { flex-wrap: wrap; padding-block: 12px; row-gap: 8px; }
+  .app .frontier-controls nav { width: 100%; flex-basis: 100%; gap: 10px; }
+  .app .frontier-controls nav button { font-size: 12px; padding-block: 10px; min-height: 62px; overflow-wrap: anywhere; }
+  .app .frontier-controls nav button>.mono { font-size: 9px; }
+  .app .frontier-controls>.frontier-pause { margin-left: auto; }
+  .app .purpose-controls { display: grid; grid-template-columns: 44px minmax(0,1fr) 44px 44px; gap: 10px; }
+  .app .purpose-dots { grid-column: 1/-1; grid-row: 1; display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; }
+  .app .purpose-dots button { min-width: 44px; min-height: 48px; font-size: 12px; }
+  .app .purpose-controls>.purpose-arrow:first-child { grid-column: 1; grid-row: 2; }
+  .app .purpose-controls>.purpose-arrow:not(:first-child):not(.purpose-pause) { grid-column: 3; grid-row: 2; }
+  .app .purpose-controls>.purpose-pause { grid-column: 4; grid-row: 2; }
+  .app .purpose-card-copy { left: 18px; right: 18px; bottom: 24px; }
+  .app .purpose-card-copy h3 { font-size: clamp(25px,7vw,34px); }
+  .app .purpose-card-copy p { font-size: 14px; }
+  .app .contact-dialog { width: 100%; max-width: none; height: var(--dialog-viewport-height,100dvh); max-height: var(--dialog-viewport-height,100dvh); top: var(--dialog-viewport-top,0px); bottom: auto; margin: 0; border: 0; overflow-y: auto; }
+  .app .contact-dialog-inner { padding: max(8px,env(safe-area-inset-top)) max(22px,env(safe-area-inset-right)) max(30px,env(safe-area-inset-bottom)) max(22px,env(safe-area-inset-left)); }
+  .app .contact-dialog h2 { font-size: clamp(28px,8vw,38px); }
+  .app .ai-hero { min-height: 0; padding-top: clamp(265px,77vw,380px); padding-bottom: 105px; }
+  .app .ai-motion-control { position: relative; inset: auto; transform: none; width: fit-content; margin: 25px auto 0; }
+  .app .ai-hero-side>p { font-size: 16px; line-height: 1.5; }
+  .app .ai-demo-tabs { gap: 4px; }
+  .app .ai-demo-tabs button { flex: 1; font-size: 12px; padding: 8px 5px; }
+  .app .ai-feedback p { font-size: 14px; line-height: 1.7; }
+  .app .ai-code pre { font-size: 12px; }
+  .app .ai-terminal { padding: 18px; }
+  .app .ai-terminal-row { flex-wrap: wrap; }
+  .app .ai-workflow-art { padding: 14px; }
+  .app .ai-return { gap: 18px; }
+  .app .ai-return .ai-kicker { font-size: 10px; line-height: 1.6; }
+  .app .quantum-hero { height: auto; min-height: max(760px,100svh); }
+  .app .quantum-hero-bottom p,.app .quantum-section-top>p:last-child,.app .quantum-campus-notes p,.app .quantum-steps p { font-size: 15px; line-height: 1.7; }
+  .app .quantum-hero-foot { padding-bottom: 110px; gap: 16px; align-items: center; }
+  .app .quantum-hero-foot button { padding: 10px; font-size: 10px; }
+  .app .quantum-modes button { font-size: 13px; }
+  .app .quantum-price { font-size: clamp(60px,19vw,80px); }
+  .app .quantum-contact { font-size: 16px; min-height: 52px; }
+  .app .quantum-field-caption small { font-size: 9px; line-height: 1.6; max-width: 280px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .app .mobile-menu nav { margin-block: 12px; }
+  .app .mobile-menu nav a { padding-block: 12px; min-height: 48px; font-size: 21px; }
+  .app .mobile-menu-top { position: sticky; top: 0; }
+  .app .ai-workflow-card { position: relative; top: auto; }
+  .app .quantum-hero { min-height: 650px; height: auto; }
+}

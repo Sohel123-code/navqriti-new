@@ -17,9 +17,14 @@ export default function useMousePosition(elementRef, enabled = true) {
     };
     element.addEventListener("pointermove", move);
     element.addEventListener("pointerleave", reset);
+    element.addEventListener("pointercancel", reset);
+    const release = (event) => { if (event.pointerType === "touch") reset(); };
+    element.addEventListener("pointerup", release);
     return () => {
       element.removeEventListener("pointermove", move);
       element.removeEventListener("pointerleave", reset);
+      element.removeEventListener("pointercancel", reset);
+      element.removeEventListener("pointerup", release);
       reset();
     };
   }, [elementRef, enabled]);

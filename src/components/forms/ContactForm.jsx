@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, Download, X } from "lucide-react";
 import { solutions } from "../../data/solutions";
+import CursorDotTrail from "../ui/CursorDotTrail";
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim();
 
-export default function ContactForm({ open, onClose }) {
+export default function ContactForm({ open, onClose, motionEnabled, dark = false }) {
   const ref = useRef(null);
   const [complete, setComplete] = useState(false);
   useEffect(() => {
-    if (open && !ref.current.open) ref.current.showModal();
+    if (open && !ref.current.open) {
+      document.dispatchEvent(new Event("navqriti:dialog-opening"));
+      ref.current.showModal();
+    }
     else if (!open && ref.current.open) ref.current.close();
   }, [open]);
   const submit = (event) => {
@@ -31,7 +35,7 @@ export default function ContactForm({ open, onClose }) {
   };
   return (
     <dialog
-      className="contact-dialog"
+      className={`contact-dialog ${dark ? "contact-dialog--dark" : ""}`}
       ref={ref}
       aria-labelledby="contact-title"
       onCancel={onClose}
@@ -40,6 +44,7 @@ export default function ContactForm({ open, onClose }) {
       }}
       data-lenis-prevent
     >
+      <CursorDotTrail motionEnabled={motionEnabled && open} portal={false} />
       <div className="contact-dialog-inner">
         <div className="contact-dialog-top">
           <span className="eyebrow">LET’S CREATE WHAT COMES NEXT</span>

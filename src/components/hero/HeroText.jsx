@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react";
 import MagneticButton from "../ui/MagneticButton";
 import AnimatedText from "../ui/AnimatedText";
 
-export default function HeroText({ motionEnabled, onContact }) {
+export default function HeroText({ motionEnabled }) {
   return (
     <div className="hero-copy" data-parallax="title">
       <div className="eyebrow hero-eyebrow" data-hero-fade>
@@ -28,14 +28,16 @@ export default function HeroText({ motionEnabled, onContact }) {
         </span>
       </h1>
       <p className="hero-description" data-hero-fade>
-        Research. Technology. Real-world impact.
+        We provide AI tools, quantum education and computing infrastructure to
+        students, institutions and businesses so they can learn, research and
+        build practical solutions.
       </p>
       <div className="hero-actions" data-hero-fade>
-        <MagneticButton onClick={onContact} motionEnabled={motionEnabled}>
-          Build what’s next
+        <MagneticButton href="/contact" motionEnabled={motionEnabled}>
+          Partner with us
         </MagneticButton>
-        <a className="text-link" href="#capabilities">
-          Explore our capabilities <ArrowDown size={16} />
+        <a className="text-link" href="#frontiers">
+          Discover AI & Quantum <ArrowDown size={16} />
         </a>
       </div>
     </div>

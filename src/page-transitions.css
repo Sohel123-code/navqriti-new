@@ -1,0 +1,51 @@
+/* A dark first paint and a non-blocking entrance for the two detail routes. */
+.app--detail { min-height: 100svh; background: #050505; }
+
+.app .cta.cta--compact { padding-block: 38px; }
+.cta-compact-main { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 24px; }
+.cta-compact-main h2 { font-size: clamp(52px,6vw,86px); font-weight: 450; letter-spacing: -.065em; line-height: 1.1; }
+.cta-compact-main p { color: #b0b0a9; font-size: 13px; margin-top: 14px; line-height: 1.6; }
+.cta-frontier-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.cta-frontier-links a { display: flex; align-items: center; justify-content: space-between; gap: 25px; min-height: 48px; border-bottom: 1px solid #77776f; font-size: 13px; }
+.cta-frontier-links svg { transition: transform .3s; }
+.cta-frontier-links a:hover svg { transform: translate(2px,-2px); }
+
+/* A light-to-dark iris and orbital particles echo the destination templates. */
+.route-iris { position: fixed; inset: 0; z-index: 11000; display: grid; place-items: center; background: #050505; color: #deded8; clip-path: circle(0 at var(--iris-x) var(--iris-y)); animation: route-iris-cover .64s cubic-bezier(.76,0,.24,1) forwards; }
+.route-iris-art { width: min(300px,60vw); text-align: center; animation: route-art-form .72s ease both; }
+.route-iris-art svg { width: 100%; overflow: visible; }
+.route-iris-art>span { display: block; font: 9px var(--mono); letter-spacing: .18em; margin-top: 12px; }
+.route-orbits { fill: none; stroke: #8e8e86; stroke-width: .6; opacity: .55; transform-origin: center; animation: route-orbit-turn 1.2s ease-out both; }
+.route-points,.route-core { fill: #e0e0da; }
+.route-points { transform-origin: center; animation: route-particle-form .72s cubic-bezier(.22,1,.36,1) both; }
+.route-iris--quantum .route-orbits { stroke-width: 1.2; opacity: .8; }
+.route-iris--quantum .route-points { opacity: .4; }
+@keyframes route-iris-cover { to { clip-path: circle(150vmax at var(--iris-x) var(--iris-y)); } }
+@keyframes route-art-form { 0%,20% { opacity: 0; } 65% { opacity: .85; } 100% { opacity: 0; } }
+@keyframes route-orbit-turn { from { transform: rotate(-35deg) scale(.8); } to { transform: rotate(20deg) scale(1.1); } }
+@keyframes route-particle-form { from { transform: scale(1.65); } to { transform: scale(.85); } }
+@media (max-width: 650px) {
+  .app .cta.cta--compact { padding-block: 30px; }
+  .cta-compact-main { align-items: start; flex-direction: column; gap: 22px; margin-top: 20px; }
+  .cta-compact-main h2 { font-size: clamp(48px,12vw,70px); }
+  .cta-frontier-links { width: 100%; gap: 20px; }
+  .cta-frontier-links a { flex: 1; gap: 10px; font-size: 12px; }
+}
+.detail-loading { min-height: 100svh; display: grid; place-items: center; background: #050505; }
+.detail-loading>span { height: 1px; width: 64px; background: #777; animation: detail-loading-pulse 1s ease-in-out infinite alternate; }
+.detail-entrance { animation: detail-page-enter .85s cubic-bezier(.22,1,.36,1) both; }
+.detail-navigation { animation: detail-page-enter .85s ease both; }
+.detail-entrance .ai-orb { animation: detail-page-enter 1.4s ease-out both; }
+@keyframes detail-page-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes detail-loading-pulse { from { opacity: .2; transform: scaleX(.4); } to { opacity: .8; transform: scaleX(1); } }
+.motion-paused .detail-entrance,.motion-paused .detail-entrance .ai-orb,.motion-paused .detail-loading>span,.app.motion-paused~.detail-navigation { animation: none; }
+
+/* Quiet, accessible controls; the sculptures and copy carry the story. */
+.app .frontier-controls.frontier-controls--minimal { justify-content: center; flex-wrap: nowrap; padding-block: 10px; gap: 18px; }
+.app .frontier-controls.frontier-controls--minimal nav { display: flex; flex: 0 1 auto; width: auto; gap: 0; }
+.app .frontier-controls.frontier-controls--minimal nav button { display: grid; place-items: center; padding: 0; min-height: 44px; width: 44px; min-width: 44px; border: 0; }
+.frontier-dot { width: 6px; height: 6px; border-radius: 10px; background: #b1b1ab; transition: width .4s ease,background .4s ease; }
+[aria-pressed=true]>.frontier-dot { width: 22px; background: #222; }
+.app .frontier-controls.frontier-controls--minimal>.frontier-pause { margin: 0; }
+@media (max-width: 767px) { .app .frontier-frame .frontier-copy { min-height: 310px; } }
+@media (prefers-reduced-motion: reduce) { .detail-entrance,.detail-entrance .ai-orb,.detail-loading>span,.detail-navigation { animation: none; }.frontier-dot { transition: none; } }
