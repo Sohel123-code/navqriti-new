@@ -18,7 +18,7 @@ export const purposeSlides = [
     id: "build",
     label: "OUR MISSION / BUILD",
     title: "Access without barriers.",
-    text: "Affordable AI tools, GPU infrastructure and collaborative research. Open to experimentation.",
+    text: "AI tools, GPU infrastructure and collaborative research. Open to experimentation.",
     navigation: "Build",
   },
   {

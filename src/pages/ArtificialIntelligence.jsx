@@ -14,7 +14,7 @@ function ClosingImage() {
 }
 
 function Reveal({ children, className = "", motionEnabled }) {
-  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 28, filter: "blur(5px)" } : false} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ amount: .12, once: false }} transition={{ duration: .7, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
+  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 20 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: .12, once: false }} transition={{ duration: .45, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
 }
 function Heading({ number, label, title, children }) {
   return <div className="ai-heading"><p className="ai-kicker">//{number} — {label}</p><h2>{title}</h2>{children && <p className="ai-description">{children}</p>}</div>;
@@ -38,7 +38,7 @@ export default function ArtificialIntelligence({ motionEnabled, toggleMotion }) 
     const description = document.querySelector('meta[name="description"]');
     const previous = description?.content;
     theme?.setAttribute("content", "#000000");
-    description?.setAttribute("content", "Explore NavQriti’s subsidized AI access, agentic LMS, Nextmo assessments and guided AI literacy. Build with AI. Understand what you create.");
+    description?.setAttribute("content", "Explore NavQriti’s AI tools and research support, agentic LMS, Nextmo assessments and guided AI literacy. Build with AI. Understand what you create.");
     return () => { theme?.setAttribute("content", "#f7f7f5"); if (previous) description?.setAttribute("content", previous); };
   }, []);
   return <div className={`ai-page ${motionEnabled ? "" : "ai-still"}`}>
@@ -53,8 +53,8 @@ export default function ArtificialIntelligence({ motionEnabled, toggleMotion }) 
       </section>
 
       <section className="ai-section ai-wrap" id="ai-challenge">
-        <Reveal motionEnabled={motionEnabled}><Heading number="02" label="THE CHALLENGE" title={<>AI IS EVERYWHERE.<br />ACCESS IS NOT.</>}>Lower the cost. Bridge the guidance gap. Understand what you build.</Heading></Reveal>
-        <div className="ai-challenges">{[["barrier-access.jpg", "High software costs", Cpu], ["barrier-guidance.jpg", "Disconnected guidance", Sparkles], ["barrier-understanding.jpg", "Answers without understanding", GraduationCap]].map(([img, text, Icon]) => <Reveal key={text} motionEnabled={motionEnabled}><img src={`/images/ai/${img}`} alt="" loading="lazy" /><h3><span><Icon size={19} /></span>{text}</h3></Reveal>)}</div>
+        <Reveal motionEnabled={motionEnabled}><Heading number="02" label="THE CHALLENGE" title={<>AI IS EVERYWHERE.<br />ACCESS IS NOT.</>}>Bridge the guidance gap. Understand what you build.</Heading></Reveal>
+        <div className="ai-challenges">{[["barrier-access.jpg", "Disconnected AI tools", Cpu], ["barrier-guidance.jpg", "Disconnected guidance", Sparkles], ["barrier-understanding.jpg", "Answers without understanding", GraduationCap]].map(([img, text, Icon]) => <Reveal key={text} motionEnabled={motionEnabled}><img src={`/images/ai/${img}`} alt="" loading="lazy" /><h3><span><Icon size={19} /></span>{text}</h3></Reveal>)}</div>
         <PartnerLink dark />
       </section>
 
@@ -66,15 +66,15 @@ export default function ArtificialIntelligence({ motionEnabled, toggleMotion }) 
       </section>
 
       <section className="ai-section ai-wrap ai-solution">
-        <Reveal motionEnabled={motionEnabled}><p className="ai-kicker">//04 — THE SOLUTION</p><h2>ONE ECOSYSTEM.<br />REAL ABILITY.</h2><p className="ai-description">Affordable tools, agentic guidance and practical learning. From first access to confident execution.</p><a className="ai-secondary-link" href="#ai-workflow">How it works</a></Reveal>
-        <Reveal motionEnabled={motionEnabled} className="ai-solution-art"><img src="/images/ai/solution.jpg" alt="" loading="lazy" /><div>{["Subsidized Claude & GPT access", "Agentic AI inside the LMS", "Nextmo-powered evaluation", "Guided AI literacy"].map(t => <span key={t}><i />{t}</span>)}</div></Reveal>
+        <Reveal motionEnabled={motionEnabled}><p className="ai-kicker">//04 — THE SOLUTION</p><h2>ONE ECOSYSTEM.<br />REAL ABILITY.</h2><p className="ai-description">AI tools, agentic guidance and practical learning. From first access to confident execution.</p><a className="ai-secondary-link" href="#ai-workflow">How it works</a></Reveal>
+        <Reveal motionEnabled={motionEnabled} className="ai-solution-art"><img src="/images/ai/solution.jpg" alt="" loading="lazy" /><div>{["Claude & GPT access", "Agentic AI inside the LMS", "Nextmo-powered evaluation", "Guided AI literacy"].map(t => <span key={t}><i />{t}</span>)}</div></Reveal>
         <PartnerLink dark />
       </section>
 
       <section className="ai-section ai-wrap" id="ai-workflow">
         <Reveal motionEnabled={motionEnabled}><Heading number="05" label="HOW IT WORKS" title={<>FROM ACCESS TO<br />EXECUTION.</>}>Three steps. Access, build, demonstrate.</Heading></Reveal>
         <div className="ai-workflow">{[
-          ["01—ACCESS", "OPEN THE DOOR.", "Claude and GPT at ₹600–₹700/month, with ongoing research support from Naira Navakriti."],
+          ["01—ACCESS", "OPEN THE DOOR.", "Claude and GPT access, with ongoing research support from Naira Navakriti."],
           ["02—BUILD", "THINK THROUGH IT.", "Embedded agentic AI scans code, diagnoses errors and guides logical problem-solving."],
           ["03—DEMONSTRATE", "SHOW WHAT YOU KNOW.", "Nextmo supports assessments, monitoring and interviews. The Navriti / Navocriti framework keeps logic, execution and code understanding at the core."]
         ].map(([label, title, text], i) => <article className="ai-workflow-card" style={{ "--step": i }} key={label}><div><p className="ai-kicker">{label}</p><h2>{title}</h2><p className="ai-description">{text}</p></div><WorkflowGraphic stage={i} /></article>)}</div>

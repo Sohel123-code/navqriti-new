@@ -4,13 +4,14 @@ import { motion as Motion } from "framer-motion";
 import { ArrowUpRight, Pause, Play, Plus } from "lucide-react";
 import SceneBoundary from "../components/ui/SceneBoundary";
 import useSceneReady from "../hooks/useSceneReady";
+import QuantumFilm from "../components/sections/QuantumFilm";
 import "../quantum.css";
 
 const QuantumLiquidHero = lazy(() => import("../components/hero/QuantumLiquidHero"));
 const QuantumField = lazy(() => import("../three/scenes/QuantumField"));
 
 function Reveal({ children, motionEnabled, className = "" }) {
-  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 24 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: .15 }} transition={{ duration: .65, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
+  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 24 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: .15 }} transition={{ duration: .45, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
 }
 
 export default function Quantum({ motionEnabled, toggleMotion }) {
@@ -26,7 +27,7 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
     const oldTheme = theme?.content;
     document.title = "NavQriti Quantum — A new field of possibility";
     theme?.setAttribute("content", "#050505");
-    description?.setAttribute("content", "Quantum Centers of Excellence, accessible campus GPU infrastructure and equity-free research support. Explore NavQriti Quantum.");
+    description?.setAttribute("content", "Quantum Centers of Excellence, shared campus GPU infrastructure and collaborative research support. Explore NavQriti Quantum.");
     return () => { document.title = title; if (oldDescription) description.content = oldDescription; if (oldTheme) theme.content = oldTheme; };
   }, []);
   return <div className={`quantum-page ${motionEnabled ? "" : "quantum-still"}`}>
@@ -42,6 +43,8 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
         </Reveal>
         <div className="quantum-hero-foot quantum-wrap"><span>EDUCATION ↔ RESEARCH ↔ INNOVATION</span><button onClick={toggleMotion} aria-label={motionEnabled ? "Pause page animations" : "Play page animations"}>{motionEnabled ? <Pause size={13} /> : <Play size={13} />}{motionEnabled ? "PAUSE MOTION" : "PLAY MOTION"}</button></div>
       </section>
+
+      <QuantumFilm motionEnabled={motionEnabled} />
 
       <section className="quantum-lab quantum-wrap" id="quantum-lab" aria-labelledby="quantum-lab-title" ref={fieldRef}>
         <Reveal motionEnabled={motionEnabled} className="quantum-section-top"><p className="quantum-eyebrow">01 / THE EXPLORATION</p><h2 id="quantum-lab-title">Less abstract.<br /><span>More interactive.</span></h2><p>Explore a field of possibilities.<br />Change the phase. See the pattern shift.</p></Reveal>
@@ -61,8 +64,8 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
       <section id="quantum-campus" className="quantum-campus quantum-wrap" aria-labelledby="quantum-campus-title">
         <Reveal motionEnabled={motionEnabled} className="quantum-campus-heading"><p className="quantum-eyebrow">02 / BUILT AROUND YOUR CAMPUS</p><h2 id="quantum-campus-title">Big infrastructure.<br /><span>Open access.</span></h2></Reveal>
         <div className="quantum-campus-grid">
-          <Reveal motionEnabled={motionEnabled} className="quantum-access"><p className="quantum-eyebrow">ON-CAMPUS GPU ACCESS</p><p className="quantum-price"><span>₹</span>50–60<small>/ hour</small></p><p>Investor-backed GPU infrastructure.<br />Within reach of students and faculty.</p><div className="quantum-compute" aria-hidden="true">{Array.from({ length: 24 }, (_, i) => <i key={i} style={{ "--cell": i }} />)}</div></Reveal>
-          <div className="quantum-campus-notes"><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">A PLACE TO EXPLORE</span><h3>Quantum Centers<br />of Excellence.</h3><p>Dedicated institutional spaces for research, experimentation and innovation.</p></Reveal><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">YOUR IDEAS STAY YOURS</span><h3>Research support.<br /><em>Zero equity taken.</em></h3><p>Open infrastructure and guidance for student and faculty projects.</p></Reveal></div>
+          <Reveal motionEnabled={motionEnabled} className="quantum-access"><p className="quantum-eyebrow">ON-CAMPUS GPU ACCESS</p><h3 className="quantum-access-title">Compute.<br />Collaborate.<br />Create.</h3><p>On-campus GPU infrastructure.<br />Within reach of students and faculty.</p><div className="quantum-compute" aria-hidden="true">{Array.from({ length: 24 }, (_, i) => <i key={i} style={{ "--cell": i }} />)}</div></Reveal>
+          <div className="quantum-campus-notes"><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">A PLACE TO EXPLORE</span><h3>Quantum Centers<br />of Excellence.</h3><p>Dedicated institutional spaces for research, experimentation and innovation.</p></Reveal><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">YOUR IDEAS STAY YOURS</span><h3>Research support.<br /><em>Your ideas stay yours.</em></h3><p>Open infrastructure and guidance for student and faculty projects.</p></Reveal></div>
         </div>
         <PartnerLink dark />
       </section>

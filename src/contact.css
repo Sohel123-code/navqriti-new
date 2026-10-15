@@ -11,15 +11,13 @@
 .partnership-orbit i:nth-child(2) { transform: rotate(30deg); border-color: #555; }
 .partnership-orbit i:nth-child(3) { transform: rotate(90deg); border-color: #aaa; }
 .partnership-orbit span { width: 37px; height: 37px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #ddd, #555 30%, #101010 65%); box-shadow: inset -2px -2px 3px #666; }
-.partnership-pricing { border-top: 1px solid #303030; padding-top: 24px; }
-.partnership-pricing > h2 { margin: 0 0 18px; }
-.partnership-price-row { display: grid; grid-template-columns: 1.4fr 1fr auto; align-items: center; gap: 24px; padding: 25px 0; border-bottom: 1px solid #303030; }
-.partnership-price-row h3 { font-family: inherit; font-size: 23px; font-weight: 450; letter-spacing: -.03em; margin-bottom: 8px; }
-.partnership-price-row p, .partnership-note { color: #aaa; font-size: 13px; line-height: 1.6; }
-.partnership-price-row strong { font-size: clamp(25px, 2.5vw, 34px); font-weight: 450; letter-spacing: -.04em; }
-.partnership-price-row small { font-size: 13px; color: #aaa; letter-spacing: 0; white-space: nowrap; }
-.partnership-price-row a, .partnership-footer a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 13px; }
-.partnership-price-row a:hover, .partnership-footer a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.partnership-opportunities { border-top: 1px solid #303030; padding-top: 24px; }
+.partnership-opportunities > h2 { margin: 0 0 18px; }
+.partnership-offering-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 25px 0; border-bottom: 1px solid #303030; }
+.partnership-offering-row h3 { font-family: inherit; font-size: 23px; font-weight: 450; letter-spacing: -.03em; margin-bottom: 8px; }
+.partnership-offering-row p, .partnership-note { color: #aaa; font-size: 13px; line-height: 1.6; }
+.partnership-offering-row a, .partnership-footer a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 13px; }
+.partnership-offering-row a:hover, .partnership-footer a:hover { text-decoration: underline; text-underline-offset: 6px; }
 .partnership-note { margin-top: 16px; font-size: 12px; }
 .partnership-contact { display: flex; justify-content: space-between; gap: 36px; align-items: center; padding-block: 42px; }
 .partnership-contact h2 { font-family: inherit; font-weight: 450; font-size: clamp(32px, 3.4vw, 46px); letter-spacing: -.05em; line-height: 1.1; margin-top: 14px; }
@@ -46,12 +44,10 @@
   .partnership-intro h1 { font-size: clamp(37px, 8vw, 57px); }
   .partnership-intro p:not(.partnership-kicker) { font-size: 14px; }
   .partnership-orbit { display: none; }
-  .partnership-price-row { grid-template-columns: 1fr auto; gap: 16px; padding-block: 22px; }
-  .partnership-price-row > div { grid-column: 1 / -1; }
-  .partnership-price-row h3 { font-size: 22px; }
-  .partnership-price-row strong { font-size: 27px; }
-  .partnership-price-row small { display: block; font-size: 12px; margin-top: 4px; }
-  .partnership-price-row a { font-size: 12px; gap: 8px; }
+  .partnership-offering-row { grid-template-columns: 1fr auto; gap: 16px; padding-block: 22px; }
+  .partnership-offering-row > div { grid-column: 1 / -1; }
+  .partnership-offering-row h3 { font-size: 22px; }
+  .partnership-offering-row a { font-size: 12px; gap: 8px; }
   .partnership-contact { flex-direction: column; align-items: flex-start; gap: 24px; padding-block: 32px; }
   .partnership-footer { flex-direction: column; align-items: flex-start; gap: 4px; }
 }

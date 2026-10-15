@@ -1,13 +1,16 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import useSceneReady from "../../hooks/useSceneReady";
 import { warpFragmentShader } from "../../three/shaders/quantumLiquid";
 
 // Local React/Three adapter of the supplied AnimatedLiquidBackground, Vortex preset.
 export default function QuantumLiquidHero({ motionEnabled }) {
   const ref = useRef(null);
+  const sceneReady = useSceneReady(ref, 240);
   const playback = useRef(motionEnabled);
   useEffect(() => { playback.current = motionEnabled; }, [motionEnabled]);
   useEffect(() => {
+    if (!sceneReady) return;
     const host = ref.current;
     let renderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "low-power" }); } catch { return; }
@@ -49,6 +52,6 @@ export default function QuantumLiquidHero({ motionEnabled }) {
     host.dataset.ready = "true";
     frame = requestAnimationFrame(animate);
     return () => { cancelAnimationFrame(frame); observer.disconnect(); intersection.disconnect(); geometry.dispose(); material.dispose(); renderer.dispose(); renderer.domElement.remove(); delete host.dataset.ready; };
-  }, []);
+  }, [sceneReady]);
   return <div className="quantum-liquid" ref={ref} aria-hidden="true" data-component="AnimatedLiquidBackground" />;
 }

@@ -12,6 +12,12 @@
         font.rel = "preload"; font.as = "font"; font.type = "font/woff2";
         font.href = "/fonts/inter-ai.woff2"; font.crossOrigin = "anonymous";
         document.head.appendChild(font);
+        if (/^\/ai\/?$/.test(location.pathname)) {
+          const poster = document.createElement("link");
+          poster.rel = "preload"; poster.as = "image";
+          poster.href = window.innerWidth < 768 ? "/images/ai/orb-poster-mobile.png" : "/images/ai/orb-poster.png";
+          document.head.appendChild(poster);
+        }
       }
     </script>
     <meta

@@ -7,7 +7,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .mobile-menu { overscroll-behavior: contain; overflow-y: auto; }
 
 @media (max-width: 900px), (pointer: coarse) {
-  html { scroll-padding-bottom: 100px; }
+  html { scroll-padding-top: 88px; scroll-padding-bottom: 24px; }
   .app button,.app a { -webkit-tap-highlight-color: #8883; }
   .app .icon-button,.app .frontier-pause,.app .purpose-arrow,.app .visual-caption button { min-width: 44px; min-height: 44px; flex-shrink: 0; }
   .app .brand { min-height: 44px; }
@@ -100,9 +100,80 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .app .quantum-hero-foot { padding-bottom: 110px; gap: 16px; align-items: center; }
   .app .quantum-hero-foot button { padding: 10px; font-size: 10px; }
   .app .quantum-modes button { font-size: 13px; }
-  .app .quantum-price { font-size: clamp(60px,19vw,80px); }
   .app .quantum-contact { font-size: 16px; min-height: 52px; }
   .app .quantum-field-caption small { font-size: 9px; line-height: 1.6; max-width: 280px; }
+}
+
+/* Reserve space for artwork instead of placing mobile copy over a moving scene. */
+@media (max-width: 900px) {
+  .app .ai-hero { min-height: 0; padding: 0 0 64px; }
+  .app .ai-orb { position: relative; inset: auto; transform: none; width: 100%; height: clamp(240px, 60vw, 440px); overflow: hidden; }
+  .app .ai-hero-content { display: block; text-align: center; padding-top: 20px; }
+  .app .ai-hero-side { margin-top: 28px; text-align: center; }
+  .app .ai-hero-side .ai-actions { justify-content: center; flex-wrap: wrap; white-space: normal; }
+  .app .ai-motion-control { position: relative; inset: auto; transform: none; width: fit-content; margin: 24px auto 0; }
+  .app .ai-solution, .app .ai-workflow-card { grid-template-columns: minmax(0, 1fr); }
+  .app .ai-workflow-card { position: relative; top: auto; }
+  .app .ai-workflow-card > div, .app .ai-solution > div { min-width: 0; }
+  .app .ai-dashboard-frame { width: 100%; }
+  .app .ai-demo-content { grid-template-columns: minmax(0, 1fr); }
+  .app .ai-dashboard header, .app .ai-dashboard footer { flex-wrap: wrap; }
+  .app .quantum-hero { height: auto; max-height: none; }
+  .app .quantum-hero-shade { background: linear-gradient(90deg, #000c, #0007), linear-gradient(0deg, #050505, transparent 50%, #0005); }
+  .app .quantum-campus-grid { grid-template-columns: minmax(0, 1fr); }
+  .app .quantum-campus-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app .quantum-lab-controls { flex-wrap: wrap; gap: 24px; }
+  .app .quantum-phase { flex: 1; min-width: 220px; }
+  .app .quantum-path-heading { flex-wrap: wrap; }
+  .app .quantum-lab { scroll-margin-top: 88px; }
+  .app .quantum-hero-foot { padding-bottom: 40px; }
+}
+
+@media (max-width: 767px) {
+  .app .shared-navbar .brand-image { width: 145px; height: 33px; transform: translateY(-50%) scale(.72); transform-origin: left center; }
+  .app .shared-navbar .brand img { top: -18px; }
+  .app .identity-top { gap: 16px; line-height: 1.6; }
+  .app .identity-top > :last-child { flex-shrink: 0; }
+  .app .identity-visual { height: 260px; padding-bottom: 56px; }
+  .app .identity-canvas, .app .identity-particle-preview { inset: 0 0 64px; }
+  .app .identity-caption { bottom: 24px; padding-inline: 8px; line-height: 1.6; }
+  .app .identity-bottom { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding-bottom: 16px; }
+  .app .identity-bottom nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .app .identity-bottom nav button { min-width: 0; padding: 20px 0; }
+  .app .identity-bottom > .frontier-pause { justify-self: end; }
+  /* Keep scroll motion inside its allotted area on small screens. */
+  .app[data-cinematic="true"] .identity-visual,
+  .app[data-cinematic="true"] .hero-visual,
+  .app[data-cinematic="true"] .stakeholder-list .stakeholder-row { translate: none; scale: 1; }
+  .app[data-cinematic="true"] [data-parallax="title"],
+  .app[data-cinematic="true"] [data-parallax="counter"],
+  .app[data-cinematic="true"] [data-parallax="subtle"] { translate: none; }
+  .app .ai-hero .ai-kicker { font-size: 11px; line-height: 1.6; }
+  .app .ai-demo-tabs button { min-width: 0; white-space: normal; }
+  .app .ai-code pre { max-width: 100%; overscroll-behavior-x: contain; }
+  .app .ai-workflow-art { min-width: 0; }
+  .app .ai-terminal { min-width: 0; overflow-wrap: anywhere; }
+  .app .ai-solution-art > div { padding: 20px; min-width: 0; }
+  .app .quantum-campus-notes, .app .quantum-steps { grid-template-columns: minmax(0, 1fr); }
+  .app .quantum-section-top { display: block; }
+  .app .quantum-section-top h2 { margin-block: 22px; }
+  .app .quantum-hero-bottom { display: block; }
+  .app .quantum-modes { width: 100%; }
+  .app .quantum-modes button { flex: 1; justify-content: space-between; gap: 8px; padding-inline: 12px; }
+  .app .quantum-phase { width: 100%; flex-basis: 100%; }
+  .app .quantum-access-title { font-size: clamp(36px, 9vw, 56px); }
+  .app .quantum-field-caption { display: block; }
+  .app .quantum-field-caption small { display: block; margin-top: 8px; }
+  .app .partnership-offering-row { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .app .partnership-offering-row a { justify-self: start; }
+  .app .partnership-contact-action { min-width: 0; max-width: 100%; }
+  .app .partnership-contact-action .partner-link { width: 100%; text-align: left; }
+  .app .partnership-contact-action .partner-link svg { flex-shrink: 0; }
+}
+
+@media (max-width: 359px) {
+  .app .shared-navbar .brand-image { transform: translateY(-50%) scale(.6); }
+  .app .purpose-dots button { font-size: 11px; }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {

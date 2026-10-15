@@ -7,9 +7,9 @@ export function animateHero(scope) {
     animations.forEach((animation) => animation.cancel());
     animations.length = 0;
     const groups = [
-      ["[data-hero-line]", 32, 900, 80],
-      ["[data-hero-fade]", 14, 800, 45],
-      ["[data-hero-visual]", 18, 1100, 0],
+      ["[data-hero-line]", 24, 600, 45],
+      ["[data-hero-fade]", 12, 500, 30],
+      ["[data-hero-visual]", 14, 650, 0],
     ];
     groups.forEach(([selector, distance, duration, stagger]) => {
       scope.querySelectorAll(selector).forEach((element, index) => {

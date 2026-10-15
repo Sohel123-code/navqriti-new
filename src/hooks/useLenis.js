@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import useMediaQuery from "./useMediaQuery";
 
-export default function useLenis(motionEnabled) {
+export default function useLenis(motionEnabled, pathname) {
   const finePointer = useMediaQuery("(hover: hover) and (pointer: fine)");
   useEffect(() => {
     // Phones keep native momentum scrolling. Smooth wheel motion is desktop-only.
@@ -46,6 +46,8 @@ export default function useLenis(motionEnabled) {
     dialogs.observe(body, { subtree: true, attributes: true, attributeFilter: ["open"] });
     window.visualViewport?.addEventListener("resize", viewport);
     window.visualViewport?.addEventListener("scroll", viewport);
+    const routePosition = event => { lenis?.resize(); lenis?.scrollTo(event.detail, { immediate: true, force: true }); };
+    document.addEventListener("navqriti:route-position", routePosition);
     syncDialog();
     let frame;
     const tick = (time) => {
@@ -62,7 +64,8 @@ export default function useLenis(motionEnabled) {
       window.visualViewport?.removeEventListener("scroll", viewport);
       root.style.removeProperty("--dialog-viewport-height");
       root.style.removeProperty("--dialog-viewport-top");
+      document.removeEventListener("navqriti:route-position", routePosition);
       lenis?.destroy();
     };
-  }, [motionEnabled, finePointer]);
+  }, [motionEnabled, finePointer, pathname]);
 }

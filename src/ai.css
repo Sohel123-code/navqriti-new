@@ -33,10 +33,10 @@
 .ai-skip:focus { top: 15px; }
 .ai-hero { min-height: 1000px; position: relative; padding-top: 462px; }
 .ai-orb { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(1100px, 100%); height: 670px; pointer-events: none; }
-.ai-orb-poster, #ai-orb-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.ai-orb-poster { object-fit: contain; transition: opacity 1s; }
-#ai-orb-canvas { opacity: 0; transition: opacity 1s; }
-.ai-orb.is-ready #ai-orb-canvas { opacity: 1; }
+.ai-orb-poster, .ai-orb-mount, .ai-orb-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ai-orb-poster { object-fit: contain; transition: opacity .6s ease; }
+.ai-orb-mount { opacity: 0; transition: opacity .6s ease; }
+.ai-orb.is-ready .ai-orb-mount { opacity: 1; }
 .ai-orb.is-ready .ai-orb-poster { opacity: 0; }
 .ai-hero-content { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; position: relative; z-index: 1; }
 .ai-hero .ai-kicker { color: #fff; margin-bottom: 22px; }

@@ -10,20 +10,13 @@
 .cta-frontier-links svg { transition: transform .3s; }
 .cta-frontier-links a:hover svg { transform: translate(2px,-2px); }
 
-/* A light-to-dark iris and orbital particles echo the destination templates. */
-.route-iris { position: fixed; inset: 0; z-index: 11000; display: grid; place-items: center; background: #050505; color: #deded8; clip-path: circle(0 at var(--iris-x) var(--iris-y)); animation: route-iris-cover .64s cubic-bezier(.76,0,.24,1) forwards; }
-.route-iris-art { width: min(300px,60vw); text-align: center; animation: route-art-form .72s ease both; }
-.route-iris-art svg { width: 100%; overflow: visible; }
-.route-iris-art>span { display: block; font: 9px var(--mono); letter-spacing: .18em; margin-top: 12px; }
-.route-orbits { fill: none; stroke: #8e8e86; stroke-width: .6; opacity: .55; transform-origin: center; animation: route-orbit-turn 1.2s ease-out both; }
-.route-points,.route-core { fill: #e0e0da; }
-.route-points { transform-origin: center; animation: route-particle-form .72s cubic-bezier(.22,1,.36,1) both; }
-.route-iris--quantum .route-orbits { stroke-width: 1.2; opacity: .8; }
-.route-iris--quantum .route-points { opacity: .4; }
-@keyframes route-iris-cover { to { clip-path: circle(150vmax at var(--iris-x) var(--iris-y)); } }
-@keyframes route-art-form { 0%,20% { opacity: 0; } 65% { opacity: .85; } 100% { opacity: 0; } }
-@keyframes route-orbit-turn { from { transform: rotate(-35deg) scale(.8); } to { transform: rotate(20deg) scale(1.1); } }
-@keyframes route-particle-form { from { transform: scale(1.65); } to { transform: scale(.85); } }
+/* Compositor-only cover/reveal, shared by every route including Home. */
+.route-transition { position: fixed; inset: 0; z-index: 11000; display: grid; place-items: center; background: #050505; color: #f4f4f1; opacity: 0; will-change: opacity; pointer-events: auto; }
+.route-transition--home { background: #f7f7f5; color: #191919; }
+.route-transition-mark { font-size: 24px; font-weight: 600; letter-spacing: -.04em; }
+.route-transition-mark > span { font: 10px var(--mono); letter-spacing: .02em; opacity: .65; }
+html[data-route-changing] .detail-entrance, html[data-route-changing] .detail-entrance .ai-orb { animation: none; }
+main:focus { outline: none; }
 @media (max-width: 650px) {
   .app .cta.cta--compact { padding-block: 30px; }
   .cta-compact-main { align-items: start; flex-direction: column; gap: 22px; margin-top: 20px; }
@@ -33,9 +26,9 @@
 }
 .detail-loading { min-height: 100svh; display: grid; place-items: center; background: #050505; }
 .detail-loading>span { height: 1px; width: 64px; background: #777; animation: detail-loading-pulse 1s ease-in-out infinite alternate; }
-.detail-entrance { animation: detail-page-enter .85s cubic-bezier(.22,1,.36,1) both; }
-.detail-navigation { animation: detail-page-enter .85s ease both; }
-.detail-entrance .ai-orb { animation: detail-page-enter 1.4s ease-out both; }
+.detail-entrance { animation: detail-page-enter .45s cubic-bezier(.22,1,.36,1) both; }
+.detail-navigation { animation: detail-page-enter .45s ease both; }
+.detail-entrance .ai-orb { animation: detail-page-enter .65s ease-out both; }
 @keyframes detail-page-enter { from { opacity: 0; } to { opacity: 1; } }
 @keyframes detail-loading-pulse { from { opacity: .2; transform: scaleX(.4); } to { opacity: .8; transform: scaleX(1); } }
 .motion-paused .detail-entrance,.motion-paused .detail-entrance .ai-orb,.motion-paused .detail-loading>span,.app.motion-paused~.detail-navigation { animation: none; }

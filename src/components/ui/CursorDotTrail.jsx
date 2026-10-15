@@ -41,7 +41,9 @@ export default function CursorDotTrail({ motionEnabled, portal = true }) {
     const draw = (now) => {
       frame = 0;
       if (!active || document.hidden) return;
-      const dt = Math.min(now - lastTime || 16.67, 33.34);
+      // A wake event can occur after this frame's timestamp was captured.
+      // Never integrate backwards (which can produce a negative dot radius).
+      const dt = Math.max(0, Math.min(now - lastTime || 16.67, 33.34));
       lastTime = now;
       const step = dt / 16.67;
       const spring = .15 * step;

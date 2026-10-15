@@ -46,7 +46,7 @@ export default function MobileMenu({ open, onClose }) {
               event.preventDefault();
               requestAnimationFrame(() => {
                 document.getElementById(url.hash.slice(1))?.scrollIntoView({ behavior: "instant", block: "start" });
-                window.history.replaceState(null, "", item.href);
+                window.history.replaceState(window.history.state, "", item.href);
               });
             }
           }}>

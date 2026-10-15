@@ -6,22 +6,29 @@ export default function useSceneReady(ref, delay = 120) {
   useEffect(() => {
     if (ready) return;
     let timer;
+    let visible = false;
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!visible || document.documentElement.hasAttribute("data-route-changing")) return;
+      timer = setTimeout(() => {
+        if (document.documentElement.hasAttribute("data-route-changing")) return;
+        setReady(true);
+        observer.disconnect();
+      }, delay);
+    };
     const observer = new IntersectionObserver(
       ([entry]) => {
-        clearTimeout(timer);
-        if (entry.isIntersecting) {
-          timer = setTimeout(() => {
-            setReady(true);
-            observer.disconnect();
-          }, delay);
-        }
+        visible = entry.isIntersecting;
+        schedule();
       },
       { rootMargin: "160px" },
     );
     observer.observe(ref.current);
+    document.addEventListener("navqriti:route-ready", schedule);
     return () => {
       clearTimeout(timer);
       observer.disconnect();
+      document.removeEventListener("navqriti:route-ready", schedule);
     };
   }, [ref, ready, delay]);
   return ready;

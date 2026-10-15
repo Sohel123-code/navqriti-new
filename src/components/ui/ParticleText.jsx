@@ -18,7 +18,11 @@ export default function ParticleText({ text = "NavQriti", motionEnabled }) {
       disposed = false;
     const mouse = { x: -1000, y: -1000 };
     const sample = () => {
+      if (disposed || !canvas.isConnected) return;
       const rect = canvas.getBoundingClientRect();
+      // Resize callbacks can arrive while a route is hidden or being detached.
+      // Keep the fallback until there is a drawable surface.
+      if (rect.width < 1 || rect.height < 1) return;
       width = rect.width;
       height = rect.height;
       const dpr = Math.min(devicePixelRatio, 1.5);
@@ -109,7 +113,7 @@ export default function ParticleText({ text = "NavQriti", motionEnabled }) {
       canvas.removeEventListener("pointermove", move);
       canvas.removeEventListener("pointerleave", leave);
       canvas.removeEventListener("pointerup", leave);
-      delete canvas.parentElement.dataset.ready;
+      if (canvas.parentElement) delete canvas.parentElement.dataset.ready;
     };
   }, [text, motionEnabled]);
   return (
