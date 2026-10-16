@@ -4,7 +4,6 @@ import { motion as Motion } from "framer-motion";
 import { ArrowUpRight, Pause, Play, Plus } from "lucide-react";
 import SceneBoundary from "../components/ui/SceneBoundary";
 import useSceneReady from "../hooks/useSceneReady";
-import QuantumFilm from "../components/sections/QuantumFilm";
 import "../quantum.css";
 
 const QuantumLiquidHero = lazy(() => import("../components/hero/QuantumLiquidHero"));
@@ -43,8 +42,6 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
         </Reveal>
         <div className="quantum-hero-foot quantum-wrap"><span>EDUCATION ↔ RESEARCH ↔ INNOVATION</span><button onClick={toggleMotion} aria-label={motionEnabled ? "Pause page animations" : "Play page animations"}>{motionEnabled ? <Pause size={13} /> : <Play size={13} />}{motionEnabled ? "PAUSE MOTION" : "PLAY MOTION"}</button></div>
       </section>
-
-      <QuantumFilm motionEnabled={motionEnabled} />
 
       <section className="quantum-lab quantum-wrap" id="quantum-lab" aria-labelledby="quantum-lab-title" ref={fieldRef}>
         <Reveal motionEnabled={motionEnabled} className="quantum-section-top"><p className="quantum-eyebrow">01 / THE EXPLORATION</p><h2 id="quantum-lab-title">Less abstract.<br /><span>More interactive.</span></h2><p>Explore a field of possibilities.<br />Change the phase. See the pattern shift.</p></Reveal>

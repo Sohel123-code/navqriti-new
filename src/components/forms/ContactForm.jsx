@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, Download, X } from "lucide-react";
 import { solutions } from "../../data/solutions";
 import CursorDotTrail from "../ui/CursorDotTrail";
-
-const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim();
+import { contactEmail } from "../../data/contact";
 
 export default function ContactForm({ open, onClose, motionEnabled, dark = false }) {
   const ref = useRef(null);
@@ -88,7 +87,7 @@ export default function ContactForm({ open, onClose, motionEnabled, dark = false
             </button>
           </div>
         ) : (
-          <form onSubmit={submit}>
+          <form onSubmit={submit} data-cursor-trail="hide">
             <div className="form-grid">
               <label>
                 Your name <span>*</span>

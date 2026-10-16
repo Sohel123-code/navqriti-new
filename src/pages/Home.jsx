@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import Hero from "../components/hero/Hero";
 import About from "../components/sections/About";
-import VisionMission from "../components/sections/VisionMission";
+import CompanyFilm from "../components/sections/CompanyFilm";
 import Technology from "../components/sections/Technology";
 import Industries from "../components/sections/Industries";
 import CTA from "../components/sections/CTA";
@@ -22,7 +22,7 @@ export default function Home({ motionEnabled, toggleMotion }) {
       />
       <About motionEnabled={motionEnabled} />
       <Technology motionEnabled={motionEnabled} />
-      <VisionMission motionEnabled={motionEnabled} />
+      <CompanyFilm motionEnabled={motionEnabled} />
       <Industries />
       <CTA />
     </main>

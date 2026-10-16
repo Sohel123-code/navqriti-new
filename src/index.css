@@ -1365,6 +1365,8 @@ body:has(dialog[open]) {
   width: min(600px, calc(100% - 32px));
   max-height: calc(100dvh - 48px);
   overscroll-behavior: contain;
+  overflow-y: auto;
+  scroll-padding-block: 84px 24px;
 }
 .contact-dialog::backdrop {
   background: #14141488;
@@ -1403,11 +1405,13 @@ body:has(dialog[open]) {
 }
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
 }
 .contact-dialog label {
-  font-size: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-width: 0;
   display: block;
   color: #53534e;
 }
@@ -1418,23 +1422,29 @@ body:has(dialog[open]) {
 .contact-dialog select,
 .contact-dialog textarea {
   display: block;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #c7c7bf;
-  border-radius: 0;
+  background: var(--paper);
+  border: 1px solid #c7c7bf;
+  border-radius: 6px;
   width: 100%;
-  padding: 12px 0;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 12px;
   color: #191919;
-  font-size: 12px;
-  resize: vertical;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: normal;
 }
+.contact-dialog textarea { min-height: 132px; resize: vertical; }
+.contact-dialog :is(input, select, textarea):focus-visible { outline-offset: -2px; }
 .contact-dialog input::placeholder,
 .contact-dialog textarea::placeholder {
   color: #717169;
-  font-size: 11px;
+  font-size: 14px;
 }
 .contact-dialog select {
-  font-size: 11px;
+  font-size: 16px;
 }
 .form-note {
   font-size: 10px;
@@ -2330,10 +2340,10 @@ body:has(dialog[open]) {
     gap: 15px;
   }
   .contact-dialog input {
-    font-size: 11px;
+    font-size: 16px;
   }
   .contact-dialog input::placeholder {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 @media (max-width: 365px) {

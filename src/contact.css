@@ -37,6 +37,7 @@
 .app .contact-dialog--dark :is(input, textarea)::placeholder { color: #999; }
 .app .contact-dialog--dark .form-submit { background: #f4f4f1; color: #111; border-color: #f4f4f1; }
 .app .contact-dialog--dark :is(input, select, textarea, button):focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.app .contact-dialog--dark :is(input, select, textarea):focus-visible { outline-offset: -2px; }
 @media (max-width: 767px) {
   .partnership-page { min-height: calc(100svh - 72px); }
   .partnership-wrap { width: calc(100% - 40px); }

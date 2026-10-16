@@ -1,0 +1,37 @@
+@font-face { font-family: "NavQriti Film"; src: url('/fonts/inter-ai.woff2') format('woff2'); font-style: normal; font-weight: 100 900; font-display: swap; }
+.quantum-film { background: #fff; color: #171717; font-family: "NavQriti Film", Manrope, sans-serif; padding-bottom: 56px; }
+.quantum-film .quantum-wrap { width: min(1320px, calc(100% - 100px)); margin-inline: auto; }
+.quantum-film h2 { font-weight: 450; letter-spacing: -.055em; line-height: 1.06; }
+.quantum-film h2 span { color: #737370; }
+.quantum-film .quantum-eyebrow { font: 10px/1.5 var(--mono); letter-spacing: .1em; }
+@media (max-width: 900px) { .quantum-film .quantum-wrap { width: calc(100% - 48px); } }
+@media (max-width: 600px) { .quantum-film .quantum-wrap { width: calc(100% - 36px); } }
+/* Centered cinema panel expands on entry; playback stays independent of scroll. */
+.quantum-film { position: relative; padding-top: 88px; scroll-margin-top: 100px; }
+.quantum-film-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 42px; }
+.quantum-film-heading h2 { max-width: 760px; font-size: clamp(30px, 3.5vw, 52px); }
+.quantum-film-heading p { flex-shrink: 0; color: #666; padding-bottom: 5px; }
+.quantum-film-scroll { position: relative; margin-inline: 8px; }
+.quantum-film-frame { position: relative; width: 100%; max-width: none; margin-inline: auto; aspect-ratio: 16 / 9; background: #000; border: 0; border-radius: 32px; overflow: hidden; isolation: isolate; transform-origin: center top; box-shadow: 0 0 0 1px #ffffff12; }
+.quantum-film-frame video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+.quantum-film-transcript { margin-top: 24px; font-size: 13px; line-height: 1.8; color: #666; }
+.quantum-film-transcript summary { min-height: 44px; cursor: pointer; width: fit-content; padding-block: 12px; }
+.quantum-film-transcript p { max-width: 850px; margin-top: 14px; }
+.quantum-film-error { position: absolute; inset: 0; display: grid; place-content: center; gap: 16px; background: #050505e8; color: #f4f4f1; text-align: center; padding: 20px; }
+.quantum-film-error a { text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 900px) {
+  .quantum-film-heading { display: block; }
+  .quantum-film-heading p { margin-top: 20px; }
+}
+@media (max-width: 767px) {
+  .app .quantum-film { padding-top: 56px; }
+  .app .quantum-film-heading { margin-bottom: 28px; }
+  .app .quantum-film-heading h2 { font-size: clamp(29px, 7.5vw, 42px); }
+  .app .quantum-film-scroll { margin-inline: 6px; }
+  .app .quantum-film-frame { max-height: none; aspect-ratio: 16 / 9; border-radius: 18px; }
+  .app .quantum-film-transcript { margin-top: 16px; }
+}
+
+.quantum-film-toggle { position: absolute; right: clamp(12px, 2vw, 30px); bottom: clamp(12px, 2vw, 30px); z-index: 2; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #ffffff35; background: #242424e8; color: white; transform-origin: bottom right; }
+.quantum-film-toggle:hover { background: #444; }
+.quantum-film-toggle:focus-visible { outline: 2px solid white; outline-offset: 4px; }

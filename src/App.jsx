@@ -60,7 +60,7 @@ export default function App() {
         </>}
         {isContactPage && <ContactForm dark open={contactOpen} onClose={() => setContactOpen(false)} motionEnabled={motionEnabled} />}
       </div>
-      <CursorDotTrail motionEnabled={motionEnabled && isDetailPage && !contactOpen} />
+      <CursorDotTrail motionEnabled={motionEnabled && (isDetailPage || isContactPage) && !contactOpen} />
       <RouteTransition motionEnabled={motionEnabled} onNavigate={navigate} />
     </MotionConfig>
   );

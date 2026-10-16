@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { ArrowUpRight, Download } from "lucide-react";
 import "../contact.css";
+import { contactEmail as email } from "../data/contact";
 
 export default function Contact({ onContact }) {
-  const email = import.meta.env.VITE_CONTACT_EMAIL?.trim();
   useEffect(() => {
     document.title = "NavQriti — Partnerships";
     const theme = document.querySelector('meta[name="theme-color"]');
