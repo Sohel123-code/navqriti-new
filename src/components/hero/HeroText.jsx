@@ -28,9 +28,7 @@ export default function HeroText({ motionEnabled }) {
         </span>
       </h1>
       <p className="hero-description" data-hero-fade>
-        We provide AI tools, quantum education and computing infrastructure to
-        students, institutions and businesses so they can learn, research and
-        build practical solutions.
+        NavQriti advances research, technology, and innovation through scientific discovery, product development, and strategic consulting.
       </p>
       <div className="hero-actions" data-hero-fade>
         <MagneticButton href="/contact" motionEnabled={motionEnabled}>
