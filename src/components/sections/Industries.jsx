@@ -1,4 +1,3 @@
-import PartnerLink from "../ui/PartnerLink";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { stakeholders } from "../../data/industries";
@@ -32,7 +31,6 @@ export default function Industries() {
             </div>
           ))}
         </div>
-        <PartnerLink />
       </Container>
     </section>
   );

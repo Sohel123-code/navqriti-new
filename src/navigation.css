@@ -11,6 +11,8 @@
 .app .mobile-menu { color: #191919; }
 .section-action { display: flex; justify-content: flex-end; margin-top: 32px; position: relative; z-index: 2; grid-column: 1 / -1; }
 .partner-link { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 48px; padding: 13px 22px; border: 1px solid #191919; border-radius: 999px; background: #191919; color: #fff; font-size: 14px; font-weight: 500; line-height: 1.4; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+.footer .footer-partnership { justify-content: center; margin-top: 0; padding-block: 12px max(32px, env(safe-area-inset-bottom)); }
+.shared-navbar .desktop-nav + .menu-toggle { margin-left: auto; }
 .section-action--dark .partner-link { background: #f7f7f5; color: #111; border-color: #f7f7f5; }
 .partner-link:hover { transform: translateY(-2px); background: #3b3b3b; color: white; }
 .section-action--dark .partner-link:hover { background: #d9d9d5; color: #111; }

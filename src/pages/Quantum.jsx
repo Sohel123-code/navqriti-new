@@ -1,6 +1,6 @@
 import PartnerLink from "../components/ui/PartnerLink";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { motion as Motion } from "framer-motion";
+import Reveal from "../components/ui/ScrollReveal";
 import { ArrowUpRight, Pause, Play, Plus } from "lucide-react";
 import SceneBoundary from "../components/ui/SceneBoundary";
 import useSceneReady from "../hooks/useSceneReady";
@@ -9,9 +9,6 @@ import "../quantum.css";
 const QuantumLiquidHero = lazy(() => import("../components/hero/QuantumLiquidHero"));
 const QuantumField = lazy(() => import("../three/scenes/QuantumField"));
 
-function Reveal({ children, motionEnabled, className = "" }) {
-  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 24 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: .15 }} transition={{ duration: .45, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
-}
 
 export default function Quantum({ motionEnabled, toggleMotion }) {
   const [mode, setMode] = useState(0);
@@ -38,7 +35,7 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
         <Reveal className="quantum-hero-copy quantum-wrap" motionEnabled={motionEnabled}>
           <p className="quantum-eyebrow">THE NEXT FRONTIER IS OPEN.</p>
           <h1 id="quantum-title">A new field<br />of <em>possibility.</em></h1>
-          <div className="quantum-hero-bottom"><p>Quantum thinking. Shared infrastructure.<br />From campus curiosity to real-world impact.</p><PartnerLink dark /></div>
+          <div className="quantum-hero-bottom"><p>Quantum thinking. Shared infrastructure.<br />From campus curiosity to real-world impact.</p></div>
         </Reveal>
         <div className="quantum-hero-foot quantum-wrap"><span>EDUCATION ↔ RESEARCH ↔ INNOVATION</span><button onClick={toggleMotion} aria-label={motionEnabled ? "Pause page animations" : "Play page animations"}>{motionEnabled ? <Pause size={13} /> : <Play size={13} />}{motionEnabled ? "PAUSE MOTION" : "PLAY MOTION"}</button></div>
       </section>
@@ -55,7 +52,7 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
           <div className="quantum-modes" aria-label="Particle structure">{["Interference", "Orbital cloud"].map((label, index) => <button key={label} aria-pressed={mode === index} onClick={() => setMode(index)}>{label}<Plus size={14} /></button>)}</div>
           <label className="quantum-phase"><span>PHASE <output>{phase}°</output></span><input aria-label="Field phase" type="range" min="0" max="180" value={phase} onChange={event => setPhase(Number(event.target.value))} /></label>
         </div>
-        <PartnerLink dark />
+
       </section>
 
       <section id="quantum-campus" className="quantum-campus quantum-wrap" aria-labelledby="quantum-campus-title">
@@ -64,12 +61,13 @@ export default function Quantum({ motionEnabled, toggleMotion }) {
           <Reveal motionEnabled={motionEnabled} className="quantum-access"><p className="quantum-eyebrow">ON-CAMPUS GPU ACCESS</p><h3 className="quantum-access-title">Compute.<br />Collaborate.<br />Create.</h3><p>On-campus GPU infrastructure.<br />Within reach of students and faculty.</p><div className="quantum-compute" aria-hidden="true">{Array.from({ length: 24 }, (_, i) => <i key={i} style={{ "--cell": i }} />)}</div></Reveal>
           <div className="quantum-campus-notes"><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">A PLACE TO EXPLORE</span><h3>Quantum Centers<br />of Excellence.</h3><p>Dedicated institutional spaces for research, experimentation and innovation.</p></Reveal><Reveal motionEnabled={motionEnabled}><span className="quantum-eyebrow">YOUR IDEAS STAY YOURS</span><h3>Research support.<br /><em>Your ideas stay yours.</em></h3><p>Open infrastructure and guidance for student and faculty projects.</p></Reveal></div>
         </div>
-        <PartnerLink dark />
+
       </section>
 
       <section className="quantum-path quantum-wrap" aria-labelledby="quantum-path-title">
         <Reveal motionEnabled={motionEnabled}><p className="quantum-eyebrow">03 / FROM FIRST SPARK TO WHAT’S NEXT</p><div className="quantum-path-heading"><h2 id="quantum-path-title">Start curious.<br /><span>Go further.</span></h2></div></Reveal>
         <div className="quantum-steps"><Reveal motionEnabled={motionEnabled}><span>01 — IGNITE</span><h3>Bring quantum<br />to the classroom.</h3><p>Foundations and hands-on workshops for school and intermediate students.</p></Reveal><Reveal motionEnabled={motionEnabled}><span>02 — EXPERIMENT</span><h3>Give research<br />room to grow.</h3><p>Connect institutional centers, shared compute and collaborative support.</p></Reveal><Reveal motionEnabled={motionEnabled}><span>03 — LAUNCH</span><h3>Move ideas<br />into the world.</h3><p>Go-to-market strategies connecting campus innovation with industry.</p></Reveal></div>
+
         <PartnerLink dark />
       </section>
     </main>

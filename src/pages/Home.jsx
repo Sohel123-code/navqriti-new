@@ -4,7 +4,6 @@ import About from "../components/sections/About";
 import CompanyFilm from "../components/sections/CompanyFilm";
 import Technology from "../components/sections/Technology";
 import Industries from "../components/sections/Industries";
-import CTA from "../components/sections/CTA";
 import { createScrollReveals } from "../animations/gsap/scroll";
 
 export default function Home({ motionEnabled, toggleMotion }) {
@@ -24,7 +23,6 @@ export default function Home({ motionEnabled, toggleMotion }) {
       <Technology motionEnabled={motionEnabled} />
       <CompanyFilm motionEnabled={motionEnabled} />
       <Industries />
-      <CTA />
     </main>
   );
 }

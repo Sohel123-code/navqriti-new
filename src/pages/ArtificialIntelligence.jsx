@@ -1,7 +1,7 @@
 import PartnerLink from "../components/ui/PartnerLink";
 import { lazy, Suspense, useEffect } from "react";
-import { motion as Motion } from "framer-motion";
-import { ArrowUp, ArrowUpRight, Check, Code2, Cpu, GraduationCap, Pause, Play, Sparkles } from "lucide-react";
+import { ArrowUp, Check, Cpu, GraduationCap, Pause, Play, Sparkles } from "lucide-react";
+import Reveal from "../components/ui/ScrollReveal";
 import AIParticleHero from "../components/hero/AIParticleHero";
 import AIDashboard from "../components/ui/AIDashboard";
 import SceneBoundary from "../components/ui/SceneBoundary";
@@ -13,14 +13,11 @@ function ClosingImage() {
   return <img className="ai-liquid-fallback" src="/images/ai/closing.png" alt={closingAlt} loading="lazy" />;
 }
 
-function Reveal({ children, className = "", motionEnabled }) {
-  return <Motion.div className={className} initial={motionEnabled ? { opacity: 0, y: 20 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: .12, once: false }} transition={{ duration: .45, ease: [.22, 1, .36, 1] }}>{children}</Motion.div>;
-}
 function Heading({ number, label, title, children }) {
   return <div className="ai-heading"><p className="ai-kicker">//{number} — {label}</p><h2>{title}</h2>{children && <p className="ai-description">{children}</p>}</div>;
 }
 function Actions() {
-  return <div className="ai-actions"><PartnerLink dark /><a className="ai-pill" href="#ai-product">Preview the workspace</a></div>;
+  return <div className="ai-actions"><a className="ai-pill" href="#ai-product">Preview the workspace</a></div>;
 }
 function WorkflowGraphic({ stage }) {
   return <div className="ai-workflow-art" style={{ backgroundImage: `url(/images/ai/workflow-${stage === 1 ? "two" : "one"}.png)` }} aria-label="Illustrative learning workflow">
@@ -55,20 +52,20 @@ export default function ArtificialIntelligence({ motionEnabled, toggleMotion }) 
       <section className="ai-section ai-wrap" id="ai-challenge">
         <Reveal motionEnabled={motionEnabled}><Heading number="02" label="THE CHALLENGE" title={<>AI IS EVERYWHERE.<br />ACCESS IS NOT.</>}>Bridge the guidance gap. Understand what you build.</Heading></Reveal>
         <div className="ai-challenges">{[["barrier-access.jpg", "Disconnected AI tools", Cpu], ["barrier-guidance.jpg", "Disconnected guidance", Sparkles], ["barrier-understanding.jpg", "Answers without understanding", GraduationCap]].map(([img, text, Icon]) => <Reveal key={text} motionEnabled={motionEnabled}><img src={`/images/ai/${img}`} alt="" loading="lazy" /><h3><span><Icon size={19} /></span>{text}</h3></Reveal>)}</div>
-        <PartnerLink dark />
+
       </section>
 
       <section className="ai-section ai-wrap" id="ai-product">
         <Reveal motionEnabled={motionEnabled}><Heading number="03" label="THE PLATFORM" title={<>BUILD WITH AI.<br />UNDERSTAND MORE.</>}>Code guidance, assessments and AI literacy in one connected learning journey.</Heading></Reveal>
         <Reveal motionEnabled={motionEnabled} className="ai-dashboard-frame"><AIDashboard /></Reveal>
         
-        <PartnerLink dark />
+
       </section>
 
       <section className="ai-section ai-wrap ai-solution">
         <Reveal motionEnabled={motionEnabled}><p className="ai-kicker">//04 — THE SOLUTION</p><h2>ONE ECOSYSTEM.<br />REAL ABILITY.</h2><p className="ai-description">AI tools, agentic guidance and practical learning. From first access to confident execution.</p><a className="ai-secondary-link" href="#ai-workflow">How it works</a></Reveal>
-        <Reveal motionEnabled={motionEnabled} className="ai-solution-art"><img src="/images/ai/solution.jpg" alt="" loading="lazy" /><div>{["Claude & GPT access", "Agentic AI inside the LMS", "Nextmo-powered evaluation", "Guided AI literacy"].map(t => <span key={t}><i />{t}</span>)}</div></Reveal>
-        <PartnerLink dark />
+        <Reveal motionEnabled={motionEnabled} className="ai-solution-art"><div>{["Claude & GPT access", "Agentic AI inside the LMS", "Nextmo-powered evaluation", "Guided AI literacy"].map(t => <span key={t}><i />{t}</span>)}</div></Reveal>
+
       </section>
 
       <section className="ai-section ai-wrap" id="ai-workflow">
@@ -77,14 +74,8 @@ export default function ArtificialIntelligence({ motionEnabled, toggleMotion }) 
           ["01—ACCESS", "OPEN THE DOOR.", "Claude and GPT access, with ongoing research support from Naira Navakriti."],
           ["02—BUILD", "THINK THROUGH IT.", "Embedded agentic AI scans code, diagnoses errors and guides logical problem-solving."],
           ["03—DEMONSTRATE", "SHOW WHAT YOU KNOW.", "Nextmo supports assessments, monitoring and interviews. The Navriti / Navocriti framework keeps logic, execution and code understanding at the core."]
-        ].map(([label, title, text], i) => <article className="ai-workflow-card" style={{ "--step": i }} key={label}><div><p className="ai-kicker">{label}</p><h2>{title}</h2><p className="ai-description">{text}</p></div><WorkflowGraphic stage={i} /></article>)}</div>
-        <PartnerLink dark />
-      </section>
+        ].map(([label, title, text], i) => <Reveal as="article" motionEnabled={motionEnabled} className="ai-workflow-card" style={{ "--step": i }} key={label}><div><p className="ai-kicker">{label}</p><h2>{title}</h2><p className="ai-description">{text}</p></div><WorkflowGraphic stage={i} /></Reveal>)}</div>
 
-      <section className="ai-section ai-wrap ai-tools">
-        
-        <div className="ai-tool-window"><div className="ai-tool-track">{[0, 1].map(copy => <div className="ai-tool-set" key={copy} aria-hidden={copy === 1}>{["Claude", "GPT", "Nextmo", "Agentic LMS", "Naira Navakriti"].map((t, i) => <span key={t}><span className="ai-tool-icon">{[<Sparkles key="s" />, <Cpu key="c" />, <GraduationCap key="g" />, <Code2 key="d" />, <ArrowUpRight key="a" />][i]}</span>{t}</span>)}</div>)}</div></div>
-        <PartnerLink dark />
       </section>
 
       <section className="ai-closing ai-closing-compact">

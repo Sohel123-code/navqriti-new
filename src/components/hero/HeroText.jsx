@@ -1,5 +1,4 @@
 import { ArrowDown } from "lucide-react";
-import MagneticButton from "../ui/MagneticButton";
 import AnimatedText from "../ui/AnimatedText";
 
 export default function HeroText({ motionEnabled }) {
@@ -31,9 +30,6 @@ export default function HeroText({ motionEnabled }) {
         NavQriti advances research, technology, and innovation through scientific discovery, product development, and strategic consulting.
       </p>
       <div className="hero-actions" data-hero-fade>
-        <MagneticButton href="/contact" motionEnabled={motionEnabled}>
-          Partner with us
-        </MagneticButton>
         <a className="text-link" href="#frontiers">
           Discover AI & Quantum <ArrowDown size={16} />
         </a>

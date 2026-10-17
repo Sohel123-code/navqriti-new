@@ -1,5 +1,6 @@
 import ParticleText from "../ui/ParticleText";
 import Container from "../ui/Container";
+import PartnerLink from "../ui/PartnerLink";
 
 export default function Footer({ motionEnabled }) {
   return (
@@ -9,6 +10,9 @@ export default function Footer({ motionEnabled }) {
           <ParticleText motionEnabled={motionEnabled} />
         </Container>
       </div>
+      <Container id="contact">
+        <PartnerLink dark className="footer-partnership" />
+      </Container>
     </footer>
   );
 }

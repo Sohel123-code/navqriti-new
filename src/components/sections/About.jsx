@@ -1,4 +1,3 @@
-import PartnerLink from "../ui/PartnerLink";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import AnimatedText from "../ui/AnimatedText";
@@ -28,7 +27,6 @@ export default function About({ motionEnabled }) {
           </div>
         </div>
         <NameStory motionEnabled={motionEnabled} />
-        <PartnerLink />
       </Container>
     </section>
   );

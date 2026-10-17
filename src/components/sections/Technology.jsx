@@ -1,4 +1,3 @@
-import PartnerLink from "../ui/PartnerLink";
 import { lazy, Suspense, useRef } from "react";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import Container from "../ui/Container";
@@ -106,7 +105,6 @@ export default function Technology({ motionEnabled }) {
           </div>
         </div>
         </div>
-        <PartnerLink />
       </Container>
     </section>
   );

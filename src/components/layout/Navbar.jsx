@@ -4,7 +4,7 @@ import { navigation } from "../../data/navigation";
 import Container from "../ui/Container";
 import MobileMenu from "./MobileMenu";
 
-export default function Navbar({ dark = false, mainId = "main" }) {
+export default function Navbar({ dark = false, mainId = "main", showPartnerLink = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
@@ -30,9 +30,9 @@ export default function Navbar({ dark = false, mainId = "main" }) {
               </a>
             ))}
           </nav>
-          <a className="nav-contact" href="/contact">
+          {showPartnerLink && <a className="nav-contact" href="/contact">
             Partner with us <ArrowUpRight size={17} />
-          </a>
+          </a>}
           <button
             className="menu-toggle icon-button"
             aria-label="Open navigation"
@@ -44,6 +44,7 @@ export default function Navbar({ dark = false, mainId = "main" }) {
         </Container>
       </header>
       <MobileMenu
+        showPartnerLink={showPartnerLink}
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
       />
